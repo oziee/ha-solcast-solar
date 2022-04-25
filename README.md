@@ -11,7 +11,11 @@ Modified from the great works of
 * cjtapper/solcast-py
 * home-assistant-libs/forecast_solar
 ## Basic Installation/Configuration Instructions:
-Add a new HA Integration selecting 'Solcast PV Solar'
+Add a new HA Integration selecting 'Solcast PV Solar'. 
+
+If the integration is not listed in HACS, click on the three dots at the top right and select custom repositories. Enter `https://github.com/oziee/ha-solcast-solar` and pick Integration as category.
+
+Once downloaded, you can add the integration using Configuration | Devices & Services | Add Integration.
 
 Setup the Recorder to record data.. something like
 ```
