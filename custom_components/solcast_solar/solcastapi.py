@@ -11,6 +11,7 @@ from operator import itemgetter
 from os.path import exists as file_exists
 from typing import Any, cast
 
+from homeassistant.core import HomeAssistant
 from aiohttp import ClientConnectionError, ClientSession
 import asyncio
 import async_timeout
@@ -51,16 +52,18 @@ class SolcastApi:
 
     def __init__(
         self,
+        hass: HomeAssistant,
         aiohttp_session: ClientSession,
         options: ConnectionOptions,
     ):
         """Device init."""
+        self.hass = hass
         self.aiohttp_session = aiohttp_session
         self.options = options
         self._sites = []
         self._data = dict({'forecasts':[], 'energy': {}, 'api_used':0, 'last_updated': dt.now(timezone.utc).replace(year=2000,month=1,day=1).isoformat()})
         self._api_used = 0
-        self._filename = f'solcast.json'
+        self._filename = self.hass.config.path('solcast.json')
 
     async def sites_data(self):
         """Request data via the Solcast API."""
