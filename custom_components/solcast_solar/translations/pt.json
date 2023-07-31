@@ -1,0 +1,37 @@
+
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "Chave da API da Solcast",
+                    "resource_id": "Identificador da Solcast",
+                    "const_disableautopoll": "Desactivar  API",
+                    "name": "Name"
+                },
+                "description": "Inserir todos os dados do teu sistema solar."
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "api_key": "Chave da API da Solcast",
+                    "resource_id": "Identificador da Solcast",
+                    "const_disableautopoll": "Desactivar  API",
+                    "name": "Nome"
+                },
+                "description": "Estes valor permitem afinar a integração."
+            }
+        }
+    },
+    "system_health": {
+        "info": {
+            "can_reach_server": "Ligação ao servidor",
+            "remaining_requests": "Número de pedidos restantes",
+            "rooftop_site_count": "Nímero de telhados",
+            "polling_hours": "Horas"
+        }
+    }
+}
