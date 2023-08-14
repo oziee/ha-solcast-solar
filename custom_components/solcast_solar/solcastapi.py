@@ -498,7 +498,8 @@ class SolcastApi:
                                                         "pv_estimate90": x["pv_estimate90"]})
                 
 
-            self._dataenergy = {"wh_hours": self.makeenergydict()}
+            self._dataenergy.setdefault("wh_hours", {})
+            self.update_energy_dict(self._dataenergy["wh_hours"])
             
             with open(self._filename, 'w') as f:
                     json.dump(self._data, f, ensure_ascii=False, cls=DateTimeEncoder)
@@ -647,29 +648,33 @@ class SolcastApi:
         return None
     
 
-    def makeenergydict(self) -> dict:
-        wh_hours = {}
-    
-        try:
-            lastv = -1
-            lastk = -1
-            for v in self._dataforecasts:
-                d = v['period_start'].isoformat() #.isoformat()
-                if v['pv_estimate'] == 0.0:
-                    if lastv > 0.0:
-                        wh_hours[d] = round(v['pv_estimate'] * 1000,0)
-                    lastk = d
-                    lastv = v['pv_estimate']
-                else:
-                    if lastv == 0.0:
-                        #add the last one
-                        wh_hours[lastk] = round(lastv * 1000,0)
+    def update_energy_dict(self, wh_hours) -> None:
+        if not isinstance(wh_hours, dict):
+            raise TypeError(f"wh_hours must be a dict, not {type(wh_hours)}")
 
-                    wh_hours[d] = round(v['pv_estimate'] * 1000,0)
-                    
-                    lastk = d
-                    lastv = v['pv_estimate']
-        except Exception as e:
-            _LOGGER.error("SOLCAST - makeenergydict: %s", traceback.format_exc())
+        # This only could work with at least 4 data points, this is because
+        # we might need to remove the first and last data point if they did
+        # not start on the hour.
+        if len(self._dataforecasts) < 4:
+            raise ValueError(
+                f"Forecasts data is too short. {len(self._dataforecasts)}"
+            )
 
-        return wh_hours
+        start_idx = 0
+        end_idx = len(self._dataforecasts)
+        if cast(dt, self._dataforecasts[0]["period_start"]).minute != 0:
+            start_idx = 1
+            end_idx -= 1
+
+        for v1, v2 in zip(
+            self._dataforecasts[start_idx:end_idx:2],
+            self._dataforecasts[start_idx + 1 : end_idx : 2],
+        ):
+            d1 = cast(dt, v1["period_start"].astimezone(timezone.utc))
+            d2 = cast(dt, v2["period_start"].astimezone(timezone.utc))
+            if abs(d1 - d2) != timedelta(minutes=30):
+                raise ValueError(
+                    f"Solcast data is not in 30 minute slots. {d1} != {d2}"
+                )
+            d = d1.replace(minute=0, second=0, microsecond=0).isoformat()
+            wh_hours[d] = (v1["pv_estimate"] + v2["pv_estimate"]) * 1000 / 2
