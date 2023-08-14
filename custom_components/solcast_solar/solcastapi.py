@@ -336,22 +336,25 @@ class SolcastApi:
         except Exception:
             return {}
 
-    def get_forecast_this_hour(self) -> int:
+    def get_forecast_n_hour(self, hourincrement) -> int:
+        # This technically is for the given hour in UTC time, not local time;
+        # this is because the Solcast API doesn't provide the local time zone
+        # and returns 30min intervals that doesn't necessarily align with the
+        # local time zone. This is a limitation of the Solcast API and not
+        # this code, so we'll just have to live with it.
         try:
-            da = dt.now(self._tz).replace(second=0, microsecond=0)
-            g = [d for d in self._tzdataconverted if d['period_start'].day == da.day and d['period_start'].hour == da.hour]   
-            return int(g[0]['pv_estimate'] * 1000)
+            da = dt.now(timezone.utc).replace(
+                minute=0, second=0, microsecond=0
+            ) + timedelta(hours=hourincrement)
+            g = tuple(
+                d
+                for d in self._dataforecasts
+                if d["period_start"] >= da and d["period_start"] < da + timedelta(hours=1)
+            )
+            m = sum(z["pv_estimate"] for z in g) / len(g)
+            return int(m * 1000)
         except Exception:
-            return 0
-
-    def get_forecast_next_hour(self) -> int:
-        try:
-            da = dt.now(self._tz).replace(second=0, microsecond=0) + timedelta(hours=1)
-            #g = [d for d in self._tzdataconverted if d['period_start'] == da]   
-            g = [d for d in self._tzdataconverted if d['period_start'].day == da.day and d['period_start'].hour == da.hour]  
-            return int(g[0]['pv_estimate'] * 1000)
-        except Exception:
-            return 0
+            return None
 
     def get_total_kwh_forecast_today(self) -> float:
         """Return total kwh total for rooftop site today"""
