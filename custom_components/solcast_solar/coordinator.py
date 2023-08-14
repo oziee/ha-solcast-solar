@@ -104,9 +104,9 @@ class SolcastUpdateCoordinator(DataUpdateCoordinator):
         if key == "total_kwh_forecast_today":
             return self.solcast.get_total_kwh_forecast_today()
         elif key == "peak_w_today":
-            return self.solcast.get_peak_w_today()
+            return self.solcast.get_peak_w_day(0)
         elif key == "peak_w_time_today":
-            return self.solcast.get_peak_w_time_today()
+            return self.solcast.get_peak_w_time_day(0)
         elif key == "forecast_this_hour":
             return self.solcast.get_forecast_this_hour()
         elif key == "forecast_next_hour":
@@ -124,9 +124,9 @@ class SolcastUpdateCoordinator(DataUpdateCoordinator):
         elif key == "total_kwh_forecast_d7":
             return self.solcast.get_total_kwh_forecast_furture_for_day(6)
         elif key == "peak_w_tomorrow":
-            return self.solcast.get_peak_w_tomorrow()
+            return self.solcast.get_peak_w_day(1)
         elif key == "peak_w_time_tomorrow":
-            return self.solcast.get_peak_w_time_tomorrow()
+            return self.solcast.get_peak_w_time_day(1)
         elif key == "get_remaining_today":
             return self.solcast.get_remaining_today()
         elif key == "api_counter":

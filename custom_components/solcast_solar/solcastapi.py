@@ -362,29 +362,30 @@ class SolcastApi:
         except Exception:
             return 0
 
-    def get_peak_w_today(self) -> int:
-        """Return hour of max kw for rooftop site today"""
+    def get_peak_w_day(self, dayincrement) -> int:
+        """Return hour of max kw for rooftop site N days ahead"""
         try:
-            da = dt.now(self._tz).replace(second=0, microsecond=0).date()
-            g = [d for d in self._tzdataconverted if d['period_start'].date() == da]
-            m = max(z['pv_estimate'] for z in g if z) 
+            da = dt.now(self._tz).date() + timedelta(days=dayincrement)
+            g = tuple(
+                d
+                for d in self._dataforecasts
+                if d["period_start"].astimezone(self._tz).date() == da
+            )
+            m = max(z["pv_estimate"] for z in g)
             return int(m * 1000)
         except Exception:
-            return 0
-
-    def get_peak_w_time_today(self) -> dt:
-        """Return hour of max kw for rooftop site today"""
-        try:
-            da = dt.now(self._tz).replace(second=0, microsecond=0).date()
-            g = [d for d in self._tzdataconverted if d['period_start'].date() == da]
-            m = max(z['pv_estimate'] for z in g if z) 
-
-            for v in g:
-                if v['pv_estimate'] == m:
-                    va = v['period_start']
-                    return va
-                    #return p.isoformat()
             return None
+
+    def get_peak_w_time_day(self, dayincrement) -> dt:
+        """Return hour of max kw for rooftop site N days ahead"""
+        try:
+            da = dt.now(self._tz).date() + timedelta(days=dayincrement)
+            g = tuple(
+                d
+                for d in self._dataforecasts
+                if d["period_start"].astimezone(self._tz).date() == da
+            )
+            return max((z for z in g), key=lambda x: x["pv_estimate"])["period_start"]
         except Exception:
             return None
         
@@ -397,32 +398,6 @@ class SolcastApi:
         except Exception:
             return 0
 
-    def get_peak_w_tomorrow(self) -> int:
-        """Return hour of max kw for rooftop site tomorrow"""
-        try:
-            da = dt.now(self._tz).replace(second=0, microsecond=0).date() + timedelta(days=1)
-            g = [d for d in self._tzdataconverted if d['period_start'].date() == da]
-            m = max(z['pv_estimate'] for z in g if z) 
-            return int(m * 1000)
-        except Exception:
-            return 0
-
-    def get_peak_w_time_tomorrow(self) -> dt:
-        """Return hour of max kw for rooftop site tomorrow"""
-        try:
-            da = dt.now(self._tz).replace(second=0, microsecond=0).date() + timedelta(days=1)
-            g = [d for d in self._tzdataconverted if d['period_start'].date() == da]
-            m = max(z['pv_estimate'] for z in g if z) 
-
-            for v in g:
-                if v['pv_estimate'] == m:
-                    va = v['period_start']
-                    return va
-                    #  return p.isoformat() ??
-            return None
-        except Exception:
-            return None
-    
     def get_energy_data(self) -> dict[str, Any]:
         try:
             return self._dataenergy
