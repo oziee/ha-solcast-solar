@@ -16,11 +16,11 @@ v3.1.2
 v3.1.1
 - service call to get forecast data with response
 - prevent the large attribute data from being stored in the database to save space
-- peak time foreacast is now a date+time and not just a time value
+- peak time forecast is now a date+time and not just a time value
 - forecast attributes are in 30min slots
 
 v3.1.0
-- no more auto polling.. its now up to every one to create an automation to poll for data when you want. This is due to so many users now only have 10 api calls a day
+- no more auto polling.. its now up to everyone to create an automation to poll for data when you want. This is due to so many users now only have 10 api calls a day
 - striped out saving UTC time changing and keeping solcast data as it is so timezone data can be changed when needed
 - history items went missing due to the sensor renamed
 - removed update actuals service.. actuals data from solcast is no longer polled or used
@@ -35,7 +35,7 @@ v3.0.55
 
 v3.0.47
 - added attribute weekday name for sensor forecasts, today, tomorrow, D3..7
-  can read the names via the template 
+  can read the names via the template
 {{ state_attr('sensor.solcast_forecast_today', 'dayname') }}
 {{ state_attr('sensor.solcast_forecast_today', 'dayname') }}
 {{ state_attr('sensor.solcast_forecast_tomorrow', 'dayname') }}
@@ -47,16 +47,16 @@ v3.0.47
 
 
 v3.0.46
-- possile Maria DB problem - possible fix
+- possible Maria DB problem - possible fix
 
 v3.0.45
 - pre release
-- currently being tested 
+- currently being tested
 - wont hurt anything if you do install it
 
 v3.0.44
 - pre release
-- better diagnotic data
+- better diagnostic data
 - just for testing
 - wont hurt anything if you do install it
 
@@ -71,7 +71,7 @@ v3.0.41
 - recoded logging. Re-worded. More debug vs info vs error logging.
 - API usage counter was not recorded when reset to zero at UTC midnight
 - added a new service where you can call to update the Solcast Actuals data for the forecasts
-- added the version info to the intergation UI
+- added the version info to the integration UI
 
 v3.0.40
 - someone left some unused code in 3.0.39 causing problems
@@ -116,7 +116,7 @@ v3.0.29
 
 
 v3.0.27
-- changed unit for peak measurement #86 tbanks Ivesvdf
+- changed unit for peak measurement #86 thanks Ivesvdf
 - some other minor text changes for logs
 - changed service call thanks 696GrocuttT
 - including fix for issue #83
@@ -126,7 +126,7 @@ v3.0.26
 
 v3.0.25
 - removed PR for 3.0.24 - caused errors in the forecast graph
-- fixed HA 2022.11 cant add forcast to solar dashboard
+- fixed HA 2022.11 cant add forecast to solar dashboard
 
 v3.0.24
 - merged PR from @696GrocuttT 
@@ -180,7 +180,7 @@ v3.0.9
 v3.0.6
 - **users upgrading from v3.0.x need to delete the 'solcast.json' file in the HA>config directory**
 - fixed lots of little bugs and problems.
-- added ability to add multiple solcast accounts. Just comma seperate the api_keys in the integration config.
+- added ability to add multiple solcast accounts. Just comma separate the api_keys in the integration config.
 - remained API Counter to API Left. shows how many is remaining rather than used count.
 - 'actual forecast' data is now only called once, the last api call at sunset. OR during integration install first run.
 - forecast data is still called every hour between sunrise and sunset and once at midnight every day.
@@ -221,6 +221,6 @@ Integration contains
 
 
 
-### Polling Imformation
+### Polling Information
 Solcast has a 50 API poll limit per day.
 
