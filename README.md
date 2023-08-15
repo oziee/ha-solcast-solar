@@ -37,7 +37,7 @@ or click on:
 
 
 <details>
-<summary><h3>Manualy</summary></h3>
+<summary><h3>Manually</summary></h3>
 
 You probably **do not** want to do this! Use the HACS method above unless you know what you are doing and have a good reason as to why you are installing manually
 
@@ -63,7 +63,7 @@ You probably **do not** want to do this! Use the HACS method above unless you kn
 
 * Options can be changed for existing `Solcast PV Forecast` integration in Home Assistant Integrations by selecting `Configure` (cog wheel)
 
-* If you have more than one Solcast account because you have more than 2 rooftop setups, enter both account API keys seperated by a comma `xxxxxxxx-xxxxx-xxxx,yyyyyyyy-yyyyy-yyyy` (this does go against Solcast T&C's having more than one account)
+* If you have more than one Solcast account because you have more than 2 rooftop setups, enter both account API keys separated by a comma `xxxxxxxx-xxxxx-xxxx,yyyyyyyy-yyyyy-yyyy` (this does go against Solcast T&C's having more than one account)
 
 * This is your `API Key` not your rooftop id created in Solcast. You can find your API key here [api key](https://toolkit.solcast.com.au/account)
 
@@ -78,7 +78,7 @@ There are 2 services for this integration that you can use in automations ([Conf
 | `solcast_solar.clear_all_solcast_data` | Deletes the `solcast.json` cached file |
 
 ### Basic HA Automation to manual poll Solcast API data
-Create a new HA automation and setup your prefered triggers to manually poll for new data
+Create a new HA automation and setup your preferred triggers to manually poll for new data
 This is an example.. create your own to your own needs
 
 
