@@ -73,7 +73,7 @@ v4.0.2
 - added new sensor `Power Now`
 - added new sensor `Power Next 30 Mins`
 - added new sensor `Power Next Hour`
-- added locali(s/z)ation for all objects in the integation.. thanks to @ViPeR5000 for getting me started on thinking about this (google translate used, if you find anything wrong PR and i can update the translations)
+- added locali(s/z)ation for all objects in the integration.. thanks to @ViPeR5000 for getting me started on thinking about this (google translate used, if you find anything wrong PR and i can update the translations)
 
 v4.0.1
 
@@ -110,20 +110,20 @@ v3.0.47
 
 v3.0.46
 
-- possile Maria DB problem - possible fix
+- possible Maria DB problem - possible fix
 
 v3.0.45
 
 - pre release
 - currently being tested
-- wont hurt anything if you do install it
+- won't hurt anything if you do install it
 
 v3.0.44
 
 - pre release
-- better diagnotic data
+- better diagnostic data
 - just for testing
-- wont hurt anything if you do install it
+- won't hurt anything if you do install it
 
 v3.0.43
 
@@ -139,7 +139,7 @@ v3.0.41
 - recoded logging. Re-worded. More debug vs info vs error logging.
 - API usage counter was not recorded when reset to zero at UTC midnight
 - added a new service where you can call to update the Solcast Actuals data for the forecasts
-- added the version info to the intergation UI
+- added the version info to the integration UI
 
 v3.0.40
 
@@ -207,7 +207,7 @@ v3.0.26
 v3.0.25
 
 - removed PR for 3.0.24 - caused errors in the forecast graph
-- fixed HA 2022.11 can't add forcast to solar dashboard
+- fixed HA 2022.11 can't add forecast to solar dashboard
 
 v3.0.24
 
@@ -276,7 +276,7 @@ v3.0.6
 
 - **users upgrading from v3.0.x need to delete the 'solcast.json' file in the HA>config directory**
 - fixed lots of little bugs and problems.
-- added ability to add multiple solcast accounts. Just comma seperate the api_keys in the integration config.
+- added ability to add multiple solcast accounts. Just comma separate the api_keys in the integration config.
 - remained API Counter to API Left. shows how many is remaining rather than used count.
 - 'actual forecast' data is now only called once, the last api call at sunset. OR during integration install first run.
 - forecast data is still called every hour between sunrise and sunset and once at midnight every day.
