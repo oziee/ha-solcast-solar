@@ -269,7 +269,7 @@ class SolcastSensor(CoordinatorEntity, SensorEntity):
         """Initialize the sensor."""
         super().__init__(coordinator)
 
-        # doesnt work :()
+        # doesn't work :()
         # if entity_description.key == "forecast_custom_hour":
         #     self._attr_translation_placeholders = {"customhour": "5"}
 
