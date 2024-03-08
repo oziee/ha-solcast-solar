@@ -109,7 +109,7 @@ There are 3 services for this integration that you can use in automations ([Conf
 
 ### Basic HA Automation to manual poll Solcast API data
 
-Create a new HA automation and setup your preffered triggers to manually poll for new data
+Create a new HA automation and setup your preferred triggers to manually poll for new data
 These are examples.. alter these or create your own to fit your own needs
 
 ```yaml
