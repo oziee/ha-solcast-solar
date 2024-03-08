@@ -1,137 +1,139 @@
 {
-    "config": {
-        "abort": {
-            "single_instance_allowed": "Une seule instance Solcast autorisée"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "api_key": "Clé API Solcast"
-                },
-                "description": "Votre clé de compte API Solcast"
-            }
-        }
+  "config": {
+    "abort": {
+      "single_instance_allowed": "Une seule instance Solcast autorisée"
     },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "solcast_config_action": "Action"
-                },
-                "description": "Options de configuration Solcast"
-            },
-            "api": {
-                "data": {
-                    "api_key": "Clé API Solcast"
-                },
-                "description": "Votre clé de compte API Solcast"
-            },
-            "dampen": {
-                "data": {
-                    "damp00": "00:00",
-                    "damp01": "01:00",
-                    "damp02": "02:00",
-                    "damp03": "03:00",
-                    "damp04": "04:00",
-                    "damp05": "05:00",
-                    "damp06": "06:00",
-                    "damp07": "07:00",
-                    "damp08": "08:00",
-                    "damp09": "09:00",
-                    "damp10": "10:00",
-                    "damp11": "11:00",
-                    "damp12": "12:00",
-                    "damp13": "13:00",
-                    "damp14": "14:00",
-                    "damp15": "15:00",
-                    "damp16": "16:00",
-                    "damp17": "17:00",
-                    "damp18": "18:00",
-                    "damp19": "19:00",
-                    "damp20": "20:00",
-                    "damp21": "21:00",
-                    "damp22": "22:00",
-                    "damp23": "23:00"
-                },
-                "description": "Modifier le coefficient d'amortissement horaire"
-            }
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "Clé API Solcast"
         },
-        "error": {
-            "unknown": "Erreur inconnue",
-            "incorrect_options_action": "Action incorrecte choisie"
-        }
-    },
-    "selector": {
-        "solcast_config_action": {
-            "options": {
-                "configure_api": "Clé API Solcast",
-                "configure_dampening": "Configurer le coefficient"
-            }
-        }
-    },
-    "system_health": {
-        "info": {
-            "can_reach_server": "Connexion au serveur Solcast",
-            "used_requests": "Requêtes API restantes",
-            "rooftop_site_count": "Nombre d'emplacements"
-        }
-    },
-    "services": {
-        "update_forecasts": {
-            "name": "Mise à jour",
-            "description": "Récupère les dernières données de prévisions de Solcast."
-        },
-        "clear_all_solcast_data": {
-            "name": "Effacer toutes les données Solcast enregistrées",
-            "description": "Supprime le fichier solcast.json pour supprimer toutes les données actuelles du site solcast."
-        },
-        "query_forecast_data": {
-            "name": "Interroger les données de prévision",
-            "description": "Renvoie un ensemble de données ou une valeur pour une requête donnée.",
-            "fields": {
-                "start_date_time": {
-                    "name": "Date et heure de début",
-                    "description": "Date et heure de début des données de prévision."
-                },
-                "end_date_time": {
-                    "name": "Date et heure de fin",
-                    "description": "Date et heure de fin des données de prévision."
-                }
-            }
-        },
-        "set_dampening": {
-            "name": "Définir le coefficient des prévisions",
-            "description": "Définissez le facteur horaire d’amortissement des prévisions.",
-            "fields": {
-                "damp_factor": {
-                    "name": "Chaîne de coefficient d’amortissement",
-                    "description": "Chaîne de valeurs horaires du facteur d’amortissement séparées par des virgules."
-                }
-            }
-        }
-    },
-    "entity": {
-        "sensor": {
-            "power_now_30m": {"name": "Production des 30 prochaines minutes"},
-            "power_now_1hr": {"name": "Production de la prochaines heure"},
-            "total_kwh_forecast_today": {"name": "Prévisions pour aujourd'hui"},
-            "peak_w_today": {"name": "Prévisions du pic aujourd'hui"},
-            "peak_w_time_today": {"name": "Heure du pic aujourd'hui"},
-            "forecast_this_hour": {"name": "Prévisions heure actuel"},
-            "get_remaining_today": {"name": "Prévisions de production  restantes aujourd'hui"},
-            "forecast_next_hour": {"name": "Prévisions pour la prochaine heure"},
-            "total_kwh_forecast_tomorrow": {"name": "Prévisions pour demain"},
-            "peak_w_tomorrow": {"name": "Prévisions du pic pour demain"},
-            "peak_w_time_tomorrow": {"name": "Heure du pic demain"},
-            "api_counter": {"name": "API utilisée"},
-            "api_limit": {"name": "Limite API"},
-            "lastupdated": {"name": "Dernière interrogation de l'API"},
-            "total_kwh_forecast_d3": {"name": "Prévision jour 3"},
-            "total_kwh_forecast_d4": {"name": "Prévision jour 4"},
-            "total_kwh_forecast_d5": {"name": "Prévision jour 5"},
-            "total_kwh_forecast_d6": {"name": "Prévision jour 6"},
-            "total_kwh_forecast_d7": {"name": "Prévision jour 7"},
-            "power_now": {"name": "Production maintenant"}
-        }
+        "description": "Votre clé de compte API Solcast"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "solcast_config_action": "Action"
+        },
+        "description": "Options de configuration Solcast"
+      },
+      "api": {
+        "data": {
+          "api_key": "Clé API Solcast"
+        },
+        "description": "Votre clé de compte API Solcast"
+      },
+      "dampen": {
+        "data": {
+          "damp00": "00:00",
+          "damp01": "01:00",
+          "damp02": "02:00",
+          "damp03": "03:00",
+          "damp04": "04:00",
+          "damp05": "05:00",
+          "damp06": "06:00",
+          "damp07": "07:00",
+          "damp08": "08:00",
+          "damp09": "09:00",
+          "damp10": "10:00",
+          "damp11": "11:00",
+          "damp12": "12:00",
+          "damp13": "13:00",
+          "damp14": "14:00",
+          "damp15": "15:00",
+          "damp16": "16:00",
+          "damp17": "17:00",
+          "damp18": "18:00",
+          "damp19": "19:00",
+          "damp20": "20:00",
+          "damp21": "21:00",
+          "damp22": "22:00",
+          "damp23": "23:00"
+        },
+        "description": "Modifier le coefficient d'amortissement horaire"
+      }
+    },
+    "error": {
+      "unknown": "Erreur inconnue",
+      "incorrect_options_action": "Action incorrecte choisie"
+    }
+  },
+  "selector": {
+    "solcast_config_action": {
+      "options": {
+        "configure_api": "Clé API Solcast",
+        "configure_dampening": "Configurer le coefficient"
+      }
+    }
+  },
+  "system_health": {
+    "info": {
+      "can_reach_server": "Connexion au serveur Solcast",
+      "used_requests": "Requêtes API restantes",
+      "rooftop_site_count": "Nombre d'emplacements"
+    }
+  },
+  "services": {
+    "update_forecasts": {
+      "name": "Mise à jour",
+      "description": "Récupère les dernières données de prévisions de Solcast."
+    },
+    "clear_all_solcast_data": {
+      "name": "Effacer toutes les données Solcast enregistrées",
+      "description": "Supprime le fichier solcast.json pour supprimer toutes les données actuelles du site solcast."
+    },
+    "query_forecast_data": {
+      "name": "Interroger les données de prévision",
+      "description": "Renvoie un ensemble de données ou une valeur pour une requête donnée.",
+      "fields": {
+        "start_date_time": {
+          "name": "Date et heure de début",
+          "description": "Date et heure de début des données de prévision."
+        },
+        "end_date_time": {
+          "name": "Date et heure de fin",
+          "description": "Date et heure de fin des données de prévision."
+        }
+      }
+    },
+    "set_dampening": {
+      "name": "Définir le coefficient des prévisions",
+      "description": "Définissez le facteur horaire d’amortissement des prévisions.",
+      "fields": {
+        "damp_factor": {
+          "name": "Chaîne de coefficient d’amortissement",
+          "description": "Chaîne de valeurs horaires du facteur d’amortissement séparées par des virgules."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_now_30m": { "name": "Production des 30 prochaines minutes" },
+      "power_now_1hr": { "name": "Production de la prochaines heure" },
+      "total_kwh_forecast_today": { "name": "Prévisions pour aujourd'hui" },
+      "peak_w_today": { "name": "Prévisions du pic aujourd'hui" },
+      "peak_w_time_today": { "name": "Heure du pic aujourd'hui" },
+      "forecast_this_hour": { "name": "Prévisions heure actuel" },
+      "get_remaining_today": {
+        "name": "Prévisions de production  restantes aujourd'hui"
+      },
+      "forecast_next_hour": { "name": "Prévisions pour la prochaine heure" },
+      "total_kwh_forecast_tomorrow": { "name": "Prévisions pour demain" },
+      "peak_w_tomorrow": { "name": "Prévisions du pic pour demain" },
+      "peak_w_time_tomorrow": { "name": "Heure du pic demain" },
+      "api_counter": { "name": "API utilisée" },
+      "api_limit": { "name": "Limite API" },
+      "lastupdated": { "name": "Dernière interrogation de l'API" },
+      "total_kwh_forecast_d3": { "name": "Prévision jour 3" },
+      "total_kwh_forecast_d4": { "name": "Prévision jour 4" },
+      "total_kwh_forecast_d5": { "name": "Prévision jour 5" },
+      "total_kwh_forecast_d6": { "name": "Prévision jour 6" },
+      "total_kwh_forecast_d7": { "name": "Prévision jour 7" },
+      "power_now": { "name": "Production maintenant" }
+    }
+  }
 }

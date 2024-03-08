@@ -1,137 +1,137 @@
 {
-    "config": {
-        "abort": {
-            "single_instance_allowed": "Povolená je iba jedna inštancia Solcast"
+  "config": {
+    "abort": {
+      "single_instance_allowed": "Povolená je iba jedna inštancia Solcast"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "Solcast API kľúč"
         },
-        "step": {
-            "user": {
-                "data": {
-                    "api_key": "Solcast API kľúč"
-                },
-                "description": "Váš kľúč účtu Solcast API"
-            }
-        }
-    },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "solcast_config_action": "Akcia"
-                },
-                "description": "Solcast možnosti konfigurácie"
-            },
-            "api": {
-                "data": {
-                    "api_key": "Solcast API kľúč"
-                },
-                "description": "Váš kľúč účtu Solcast API"
-            },
-            "dampen": {
-                "data": {
-                    "damp00": "00:00",
-                    "damp01": "01:00",
-                    "damp02": "02:00",
-                    "damp03": "03:00",
-                    "damp04": "04:00",
-                    "damp05": "05:00",
-                    "damp06": "06:00",
-                    "damp07": "07:00",
-                    "damp08": "08:00",
-                    "damp09": "09:00",
-                    "damp10": "10:00",
-                    "damp11": "11:00",
-                    "damp12": "12:00",
-                    "damp13": "13:00",
-                    "damp14": "14:00",
-                    "damp15": "15:00",
-                    "damp16": "16:00",
-                    "damp17": "17:00",
-                    "damp18": "18:00",
-                    "damp19": "19:00",
-                    "damp20": "20:00",
-                    "damp21": "21:00",
-                    "damp22": "22:00",
-                    "damp23": "23:00"
-                },
-                "description": "Upravte hodinový faktor tlmenia"
-            }
-        },
-        "error": {
-            "unknown": "Neznáma chyba",
-            "incorrect_options_action": "Zvolená nesprávna akcia"
-        }
-    },
-    "selector": {
-        "solcast_config_action": {
-            "options": {
-                "configure_api": "Solcast API kľúč",
-                "configure_dampening": "Konfigurácia tlmenia"
-            }
-        }
-    },
-    "system_health": {
-        "info": {
-            "can_reach_server": "Solcast server pripojenie",
-            "used_requests": "Zostávajúce požiadavky API",
-            "rooftop_site_count": "Počet miest na streche"
-        }
-    },
-    "services": {
-        "update_forecasts": {
-            "name": "Aktualizácia",
-            "description": "Načítava najnovšie predpovede zo Solcastu."
-            },
-        "clear_all_solcast_data": {
-            "name": "Vymažte všetky uložené údaje Solcast",
-            "description": "Odstráni súbor solcast.json a odstráni všetky aktuálne údaje lokality solcast."
-            },
-        "query_forecast_data": {
-            "name": "Dopytujte údaje predpovede",
-            "description": "Vráti množinu údajov alebo hodnotu pre daný dotaz.",
-            "fields": {
-                "start_date_time": {
-                    "name": "Dátum začiatku a čas",
-                    "description": "Dopyt na udalosti s údajmi prognózy od dátumu a času."
-                },
-                "end_date_time": {
-                    "name": "Dátum ukončenia čas",
-                    "description": "Dopytujte udalosti predpovede údajov o aktuálnom čase."
-                }
-            }
-        },
-        "set_dampening": {
-            "name": "Nastavte tlmenie predpovedí",
-            "description": "Nastavte hodinový faktor tlmenia predpovede.",
-            "fields": {
-                "damp_factor": {
-                    "name": "Tlmiaci reťazec",
-                    "description": "Reťazec hodnôt hodinového faktora tlmenia oddelený čiarkou."
-                }
-            }
-        }
-    },
-    "entity": {
-        "sensor": {
-            "power_now_30m": {"name": "Výkon ďalších 30 min"},
-            "power_now_1hr": {"name": "Výkon ďalšiu hodinu"},
-            "total_kwh_forecast_today": {"name": "Predpoveď dnes"},
-            "peak_w_today": {"name": "Predpoveď špičky dnes"},
-            "peak_w_time_today": {"name": "Čas špičky dnes"},
-            "forecast_this_hour": {"name": "Predpoveď túto hodinu"},
-            "get_remaining_today": {"name": "Predpoveď zostávajúca dnes"},
-            "forecast_next_hour": {"name": "Predpoveď ďalšie hodina"},
-            "total_kwh_forecast_tomorrow": {"name": "Prepoveď zajtra"},
-            "peak_w_tomorrow": {"name": "Predpoveď špička zajtra"},
-            "peak_w_time_tomorrow": {"name": "Čas špičky zajtra"},
-            "api_counter": {"name": "Použité API"},
-            "api_limit": {"name": "API Limit"},
-            "lastupdated": {"name": "API Last Polled"},
-            "total_kwh_forecast_d3": {"name": "Predpoveď deň 3"},
-            "total_kwh_forecast_d4": {"name": "Prepoveď deň 4"},
-            "total_kwh_forecast_d5": {"name": "Predpoveď deň 5"},
-            "total_kwh_forecast_d6": {"name": "Predpoveď deň 6"},
-            "total_kwh_forecast_d7": {"name": "Predpoveď deň 7"},
-            "power_now": {"name": "Výkon teraz"}
-        }
+        "description": "Váš kľúč účtu Solcast API"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "solcast_config_action": "Akcia"
+        },
+        "description": "Solcast možnosti konfigurácie"
+      },
+      "api": {
+        "data": {
+          "api_key": "Solcast API kľúč"
+        },
+        "description": "Váš kľúč účtu Solcast API"
+      },
+      "dampen": {
+        "data": {
+          "damp00": "00:00",
+          "damp01": "01:00",
+          "damp02": "02:00",
+          "damp03": "03:00",
+          "damp04": "04:00",
+          "damp05": "05:00",
+          "damp06": "06:00",
+          "damp07": "07:00",
+          "damp08": "08:00",
+          "damp09": "09:00",
+          "damp10": "10:00",
+          "damp11": "11:00",
+          "damp12": "12:00",
+          "damp13": "13:00",
+          "damp14": "14:00",
+          "damp15": "15:00",
+          "damp16": "16:00",
+          "damp17": "17:00",
+          "damp18": "18:00",
+          "damp19": "19:00",
+          "damp20": "20:00",
+          "damp21": "21:00",
+          "damp22": "22:00",
+          "damp23": "23:00"
+        },
+        "description": "Upravte hodinový faktor tlmenia"
+      }
+    },
+    "error": {
+      "unknown": "Neznáma chyba",
+      "incorrect_options_action": "Zvolená nesprávna akcia"
+    }
+  },
+  "selector": {
+    "solcast_config_action": {
+      "options": {
+        "configure_api": "Solcast API kľúč",
+        "configure_dampening": "Konfigurácia tlmenia"
+      }
+    }
+  },
+  "system_health": {
+    "info": {
+      "can_reach_server": "Solcast server pripojenie",
+      "used_requests": "Zostávajúce požiadavky API",
+      "rooftop_site_count": "Počet miest na streche"
+    }
+  },
+  "services": {
+    "update_forecasts": {
+      "name": "Aktualizácia",
+      "description": "Načítava najnovšie predpovede zo Solcastu."
+    },
+    "clear_all_solcast_data": {
+      "name": "Vymažte všetky uložené údaje Solcast",
+      "description": "Odstráni súbor solcast.json a odstráni všetky aktuálne údaje lokality solcast."
+    },
+    "query_forecast_data": {
+      "name": "Dopytujte údaje predpovede",
+      "description": "Vráti množinu údajov alebo hodnotu pre daný dotaz.",
+      "fields": {
+        "start_date_time": {
+          "name": "Dátum začiatku a čas",
+          "description": "Dopyt na udalosti s údajmi prognózy od dátumu a času."
+        },
+        "end_date_time": {
+          "name": "Dátum ukončenia čas",
+          "description": "Dopytujte udalosti predpovede údajov o aktuálnom čase."
+        }
+      }
+    },
+    "set_dampening": {
+      "name": "Nastavte tlmenie predpovedí",
+      "description": "Nastavte hodinový faktor tlmenia predpovede.",
+      "fields": {
+        "damp_factor": {
+          "name": "Tlmiaci reťazec",
+          "description": "Reťazec hodnôt hodinového faktora tlmenia oddelený čiarkou."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_now_30m": { "name": "Výkon ďalších 30 min" },
+      "power_now_1hr": { "name": "Výkon ďalšiu hodinu" },
+      "total_kwh_forecast_today": { "name": "Predpoveď dnes" },
+      "peak_w_today": { "name": "Predpoveď špičky dnes" },
+      "peak_w_time_today": { "name": "Čas špičky dnes" },
+      "forecast_this_hour": { "name": "Predpoveď túto hodinu" },
+      "get_remaining_today": { "name": "Predpoveď zostávajúca dnes" },
+      "forecast_next_hour": { "name": "Predpoveď ďalšie hodina" },
+      "total_kwh_forecast_tomorrow": { "name": "Prepoveď zajtra" },
+      "peak_w_tomorrow": { "name": "Predpoveď špička zajtra" },
+      "peak_w_time_tomorrow": { "name": "Čas špičky zajtra" },
+      "api_counter": { "name": "Použité API" },
+      "api_limit": { "name": "API Limit" },
+      "lastupdated": { "name": "API Last Polled" },
+      "total_kwh_forecast_d3": { "name": "Predpoveď deň 3" },
+      "total_kwh_forecast_d4": { "name": "Prepoveď deň 4" },
+      "total_kwh_forecast_d5": { "name": "Predpoveď deň 5" },
+      "total_kwh_forecast_d6": { "name": "Predpoveď deň 6" },
+      "total_kwh_forecast_d7": { "name": "Predpoveď deň 7" },
+      "power_now": { "name": "Výkon teraz" }
+    }
+  }
 }

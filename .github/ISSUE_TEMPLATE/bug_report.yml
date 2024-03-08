@@ -5,10 +5,10 @@ body:
     attributes:
       value: |
         This issue form is for reporting bugs only!
-        
+
         # Do not just write 'it does not work, vX.X.X, HA, X.X.X'
-        ## If not enough information is supplied I may just ignore or close the issue 
-        
+        ## If not enough information is supplied I may just ignore or close the issue
+
 
         If you have a feature or enhancement request, please use the [discussion forums][fr] section.
 

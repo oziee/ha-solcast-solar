@@ -1,36 +1,36 @@
-name-template: 'v$NEXT_MINOR_VERSION'
-tag-template: 'v$NEXT_MINOR_VERSION'
+name-template: "v$NEXT_MINOR_VERSION"
+tag-template: "v$NEXT_MINOR_VERSION"
 categories:
-  - title: '🚀 Features'
+  - title: "🚀 Features"
     labels:
-      - 'feature'
-      - 'enhancement'
-  - title: '🐛 Bug Fixes'
+      - "feature"
+      - "enhancement"
+  - title: "🐛 Bug Fixes"
     labels:
-      - 'fix'
-      - 'bugfix'
-      - 'bug'
-  - title: '🧰 Maintenance'
-    labels: 
-      - 'chore'
-      - 'documentation'
-      - 'miscellaneous'
+      - "fix"
+      - "bugfix"
+      - "bug"
+  - title: "🧰 Maintenance"
+    labels:
+      - "chore"
+      - "documentation"
+      - "miscellaneous"
 exclude-labels:
-  - 'dependencies'
-change-template: '- $TITLE #$NUMBER (@$AUTHOR)'
+  - "dependencies"
+change-template: "- $TITLE #$NUMBER (@$AUTHOR)"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
   major:
     labels:
-      - 'major'
+      - "major"
   minor:
     labels:
-      - 'minor'
+      - "minor"
   patch:
     labels:
-      - 'patch'
+      - "patch"
   default: patch
 template: |
   $CHANGES
-  
+
   ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/oziee/ha-solcast-solar/v$NEXT_MINOR_VERSION/total)

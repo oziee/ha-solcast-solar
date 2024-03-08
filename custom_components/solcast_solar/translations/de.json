@@ -1,77 +1,77 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "data": {
-                    "api_key": "Solcast-API-Schlüssel"
-                },
-                "description": "Trage deinen Solcast-API-Kontoschlüssel ein."
-            }
-        }
-    },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "api_key": "Solcast-API-Schlüssel"
-                },
-                "description": "Dein Solcast-API-Kontoschlüssel"
-            }
-        }
-    },
-    "system_health": {
-        "info": {
-            "can_reach_server": "Verbindung zum Solcast-Server",
-            "used_requests": "Verbrauchte API-Anfragen",
-            "rooftop_site_count": "Anzahl der Dachflächen"
-        }
-    },
-    "services": {
-        "update_forecasts": {
-            "name": "Aktualisieren",
-            "description": "Lade die neusten Prognosedaten von Solcast herunter."
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "Solcast-API-Schlüssel"
         },
-        "clear_all_solcast_data": {
-            "name": "Solcast-Daten zurücksetzen",
-            "description": "Alle gespeicherten Solcast-Daten werden  entfernt. Die Datei solcast.json wird dadurch gelöscht."
-        },
-        "query_forecast_data": {
-            "name": "Prognosedaten herunterladen",
-            "description": "Es werden die aktuellen Prognosedaten heruntergeladen.",
-            "fields": {
-                "start_date_time": {
-                    "name": "Anfangsdatum und /-uhrzeit",
-                    "description": "Startzeitpunkt der Prognosedaten."
-                },
-                "end_date_time": {
-                    "name": "Enddatum und /-uhrzeit",
-                    "description": "Endzeitpunkt der Prognosedaten."
-                }
-            }
-        }
-    },
-    "entity": {
-        "sensor": {
-            "power_now_30m": {"name": "Leistung kommende 30 Minuten"},
-            "power_now_1hr": {"name": "Leistung kommende 60 Minuten"},
-            "total_kwh_forecast_today": {"name": "Prognose heute"},
-            "peak_w_today": {"name": "Prognose Spitzenleistung heute"},
-            "peak_w_time_today": {"name": "Zeitpunkt Spitzenleistung heute"},
-            "forecast_this_hour": {"name": "Prognose aktuelle Stunde"},
-            "get_remaining_today": {"name": "Prognose verbleibende Leistung heute"},
-            "forecast_next_hour": {"name": "Prognose nächste Stunde"},
-            "total_kwh_forecast_tomorrow": {"name": "Prognose morgen"},
-            "peak_w_tomorrow": {"name": "Prognose Spitzenleistung morgen"},
-            "peak_w_time_tomorrow": {"name": "Zeitpunkt Spitzenleistung morgen"},
-            "api_counter": {"name": "Verwendete API-Abrufe"},
-            "api_limit": {"name": "max. API-Abrufe"},
-            "lastupdated": {"name": "Zeitpunkt letzter API-Abruf"},
-            "total_kwh_forecast_d3": {"name": "Prognose Tag 3"},
-            "total_kwh_forecast_d4": {"name": "Prognose Tag 4"},
-            "total_kwh_forecast_d5": {"name": "Prognose Tag 5"},
-            "total_kwh_forecast_d6": {"name": "Prognose Tag 6"},
-            "total_kwh_forecast_d7": {"name": "Prognose Tag 7"},
-            "power_now": {"name": "Aktuelle Leistung"}
-        }
+        "description": "Trage deinen Solcast-API-Kontoschlüssel ein."
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "api_key": "Solcast-API-Schlüssel"
+        },
+        "description": "Dein Solcast-API-Kontoschlüssel"
+      }
+    }
+  },
+  "system_health": {
+    "info": {
+      "can_reach_server": "Verbindung zum Solcast-Server",
+      "used_requests": "Verbrauchte API-Anfragen",
+      "rooftop_site_count": "Anzahl der Dachflächen"
+    }
+  },
+  "services": {
+    "update_forecasts": {
+      "name": "Aktualisieren",
+      "description": "Lade die neusten Prognosedaten von Solcast herunter."
+    },
+    "clear_all_solcast_data": {
+      "name": "Solcast-Daten zurücksetzen",
+      "description": "Alle gespeicherten Solcast-Daten werden  entfernt. Die Datei solcast.json wird dadurch gelöscht."
+    },
+    "query_forecast_data": {
+      "name": "Prognosedaten herunterladen",
+      "description": "Es werden die aktuellen Prognosedaten heruntergeladen.",
+      "fields": {
+        "start_date_time": {
+          "name": "Anfangsdatum und /-uhrzeit",
+          "description": "Startzeitpunkt der Prognosedaten."
+        },
+        "end_date_time": {
+          "name": "Enddatum und /-uhrzeit",
+          "description": "Endzeitpunkt der Prognosedaten."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_now_30m": { "name": "Leistung kommende 30 Minuten" },
+      "power_now_1hr": { "name": "Leistung kommende 60 Minuten" },
+      "total_kwh_forecast_today": { "name": "Prognose heute" },
+      "peak_w_today": { "name": "Prognose Spitzenleistung heute" },
+      "peak_w_time_today": { "name": "Zeitpunkt Spitzenleistung heute" },
+      "forecast_this_hour": { "name": "Prognose aktuelle Stunde" },
+      "get_remaining_today": { "name": "Prognose verbleibende Leistung heute" },
+      "forecast_next_hour": { "name": "Prognose nächste Stunde" },
+      "total_kwh_forecast_tomorrow": { "name": "Prognose morgen" },
+      "peak_w_tomorrow": { "name": "Prognose Spitzenleistung morgen" },
+      "peak_w_time_tomorrow": { "name": "Zeitpunkt Spitzenleistung morgen" },
+      "api_counter": { "name": "Verwendete API-Abrufe" },
+      "api_limit": { "name": "max. API-Abrufe" },
+      "lastupdated": { "name": "Zeitpunkt letzter API-Abruf" },
+      "total_kwh_forecast_d3": { "name": "Prognose Tag 3" },
+      "total_kwh_forecast_d4": { "name": "Prognose Tag 4" },
+      "total_kwh_forecast_d5": { "name": "Prognose Tag 5" },
+      "total_kwh_forecast_d6": { "name": "Prognose Tag 6" },
+      "total_kwh_forecast_d7": { "name": "Prognose Tag 7" },
+      "power_now": { "name": "Aktuelle Leistung" }
+    }
+  }
 }

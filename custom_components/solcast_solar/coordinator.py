@@ -1,4 +1,5 @@
 """The Solcast Solar integration."""
+
 from __future__ import annotations
 
 import logging
@@ -13,6 +14,7 @@ from .const import DOMAIN
 from .solcastapi import SolcastApi
 
 _LOGGER = logging.getLogger(__name__)
+
 
 class SolcastUpdateCoordinator(DataUpdateCoordinator):
     """Class to manage fetching data from Solcast Solar API."""
@@ -30,26 +32,28 @@ class SolcastUpdateCoordinator(DataUpdateCoordinator):
             name=DOMAIN,
         )
 
-
     async def _async_update_data(self):
         """Update data via library."""
         return self.solcast._data
-            
+
     async def setup(self):
-        d={}
+        d = {}
         self._previousenergy = d
 
         try:
-            async_track_utc_time_change(self._hass, self.update_integration_listeners, second=0)
-        except Exception as error:
-            _LOGGER.error("SOLCAST - Error coordinator setup: %s", traceback.format_exc())
-
+            async_track_utc_time_change(
+                self._hass, self.update_integration_listeners, second=0
+            )
+        except Exception:
+            _LOGGER.error(
+                "SOLCAST - Error coordinator setup: %s", traceback.format_exc()
+            )
 
     async def update_integration_listeners(self, *args):
         try:
             self.async_update_listeners()
         except Exception:
-            #_LOGGER.error("SOLCAST - update_integration_listeners: %s", traceback.format_exc())
+            # _LOGGER.error("SOLCAST - update_integration_listeners: %s", traceback.format_exc())
             pass
 
     async def service_event_update(self, *args):
@@ -83,7 +87,7 @@ class SolcastUpdateCoordinator(DataUpdateCoordinator):
         elif key == "forecast_next_24hour":
             return self.solcast.get_forecast_n_hour(24)
         elif key == "total_kwh_forecast_tomorrow":
-            return self.solcast.get_total_kwh_forecast_day(1) 
+            return self.solcast.get_total_kwh_forecast_day(1)
         elif key == "total_kwh_forecast_d3":
             return self.solcast.get_total_kwh_forecast_day(2)
         elif key == "total_kwh_forecast_d4":
@@ -101,9 +105,9 @@ class SolcastUpdateCoordinator(DataUpdateCoordinator):
         elif key == "power_now_1hr":
             return self.solcast.get_power_production_n_mins(60)
         elif key == "power_now_12hr":
-            return self.solcast.get_power_production_n_mins(60*12)
+            return self.solcast.get_power_production_n_mins(60 * 12)
         elif key == "power_now_24hr":
-            return self.solcast.get_power_production_n_mins(60*24)
+            return self.solcast.get_power_production_n_mins(60 * 24)
         elif key == "peak_w_tomorrow":
             return self.solcast.get_peak_w_day(1)
         elif key == "peak_w_time_tomorrow":
@@ -117,7 +121,7 @@ class SolcastUpdateCoordinator(DataUpdateCoordinator):
         elif key == "lastupdated":
             return self.solcast.get_last_updated_datetime()
 
-        #just in case
+        # just in case
         return None
 
     def get_sensor_extra_attributes(self, key=""):
@@ -136,7 +140,7 @@ class SolcastUpdateCoordinator(DataUpdateCoordinator):
         elif key == "total_kwh_forecast_d7":
             return self.solcast.get_forecast_day(6)
 
-        #just in case
+        # just in case
         return None
 
     def get_site_sensor_value(self, roof_id, key):

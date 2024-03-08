@@ -1,145 +1,145 @@
 {
-    "config": {
-        "abort": {
-            "single_instance_allowed": "Only one Solcast instance allowed"
+  "config": {
+    "abort": {
+      "single_instance_allowed": "Only one Solcast instance allowed"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "Solcast API key"
         },
-        "step": {
-            "user": {
-                "data": {
-                    "api_key": "Solcast API key"
-                },
-                "description": "Your Solcast API Account Key"
-            }
-        }
-    },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "solcast_config_action": "Action"
-                },
-                "description": "Solcast configuration options"
-            },
-            "api": {
-                "data": {
-                    "api_key": "Solcast API key"
-                },
-                "description": "Your Solcast API Account Key"
-            },
-            "dampen": {
-                "data": {
-                    "damp00": "00:00",
-                    "damp01": "01:00",
-                    "damp02": "02:00",
-                    "damp03": "03:00",
-                    "damp04": "04:00",
-                    "damp05": "05:00",
-                    "damp06": "06:00",
-                    "damp07": "07:00",
-                    "damp08": "08:00",
-                    "damp09": "09:00",
-                    "damp10": "10:00",
-                    "damp11": "11:00",
-                    "damp12": "12:00",
-                    "damp13": "13:00",
-                    "damp14": "14:00",
-                    "damp15": "15:00",
-                    "damp16": "16:00",
-                    "damp17": "17:00",
-                    "damp18": "18:00",
-                    "damp19": "19:00",
-                    "damp20": "20:00",
-                    "damp21": "21:00",
-                    "damp22": "22:00",
-                    "damp23": "23:00"
-                },
-                "description": "Modify the hourly dampening factor"
-            },
-            "customsensor": {
-                "data": {
-                    "customhoursensor": "Next X Hour Sensor"
-                },
-                "description": "Custom sensor for total energy for the next X hours"
-            }
-        },
-        "error": {
-            "unknown": "Unknown error",
-            "incorrect_options_action": "Incorrect action chosen"
-        }
-    },
-    "selector": {
-        "solcast_config_action": {
-            "options": {
-                "configure_api": "Solcast API key",
-                "configure_dampening": "Configure Dampening",
-                "configure_customsensor": "Configure Custom Hour Sensor"
-            }
-        }
-    },
-    "system_health": {
-        "info": {
-            "can_reach_server": "Solcast server connection",
-            "used_requests": "API requests remaining",
-            "rooftop_site_count": "Rooftop site count"
-        }
-    },
-    "services": {
-        "update_forecasts": {
-            "name": "Update",
-            "description": "Fetches the latest forecasts data from Solcast."
-            },
-        "clear_all_solcast_data": {
-            "name": "Clear all saved Solcast data",
-            "description": "Deletes the solcast.json file to remove all current solcast site data."
-            },
-        "query_forecast_data": {
-            "name": "Query forecast data",
-            "description": "Return a data set or value for a given query.",
-            "fields": {
-                "start_date_time": {
-                    "name": "Start date time",
-                    "description": "Query forecast data events from date time."
-                },
-                "end_date_time": {
-                    "name": "End date time",
-                    "description": "Query forecast data events up to date time."
-                }
-            }
-        },
-        "set_dampening": {
-            "name": "Set forecasts dampening",
-            "description": "Set forecast dampening hourly factor.",
-            "fields": {
-                "damp_factor": {
-                    "name": "Dampening string",
-                    "description": "String of hourly dampening factor values comma seperated."
-                }
-            }
-        }
-    },
-    "entity": {
-        "sensor": {
-            "power_now_30m": {"name": "Power Next 30 Mins"},
-            "power_now_1hr": {"name": "Power Next Hour"},
-            "total_kwh_forecast_today": {"name": "Forecast Today"},
-            "peak_w_today": {"name": "Peak Forecast Today"},
-            "peak_w_time_today": {"name": "Peak Time Today"},
-            "forecast_this_hour": {"name": "Forecast This Hour"},
-            "get_remaining_today": {"name": "Forecast Remaining Today"},
-            "forecast_next_hour": {"name": "Forecast Next Hour"},
-            "forecast_custom_hour": {"name": "Forecast Next Custom Hours"},
-            "total_kwh_forecast_tomorrow": {"name": "Forecast Tomorrow"},
-            "peak_w_tomorrow": {"name": "Peak Forecast Tomorrow"},
-            "peak_w_time_tomorrow": {"name": "Peak Time Tomorrow"},
-            "api_counter": {"name": "API Used"},
-            "api_limit": {"name": "API Limit"},
-            "lastupdated": {"name": "API Last Polled"},
-            "total_kwh_forecast_d3": {"name": "Forecast Day 3"},
-            "total_kwh_forecast_d4": {"name": "Forecast Day 4"},
-            "total_kwh_forecast_d5": {"name": "Forecast Day 5"},
-            "total_kwh_forecast_d6": {"name": "Forecast Day 6"},
-            "total_kwh_forecast_d7": {"name": "Forecast Day 7"},
-            "power_now": {"name": "Power Now"}
-        }
+        "description": "Your Solcast API Account Key"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "solcast_config_action": "Action"
+        },
+        "description": "Solcast configuration options"
+      },
+      "api": {
+        "data": {
+          "api_key": "Solcast API key"
+        },
+        "description": "Your Solcast API Account Key"
+      },
+      "dampen": {
+        "data": {
+          "damp00": "00:00",
+          "damp01": "01:00",
+          "damp02": "02:00",
+          "damp03": "03:00",
+          "damp04": "04:00",
+          "damp05": "05:00",
+          "damp06": "06:00",
+          "damp07": "07:00",
+          "damp08": "08:00",
+          "damp09": "09:00",
+          "damp10": "10:00",
+          "damp11": "11:00",
+          "damp12": "12:00",
+          "damp13": "13:00",
+          "damp14": "14:00",
+          "damp15": "15:00",
+          "damp16": "16:00",
+          "damp17": "17:00",
+          "damp18": "18:00",
+          "damp19": "19:00",
+          "damp20": "20:00",
+          "damp21": "21:00",
+          "damp22": "22:00",
+          "damp23": "23:00"
+        },
+        "description": "Modify the hourly dampening factor"
+      },
+      "customsensor": {
+        "data": {
+          "customhoursensor": "Next X Hour Sensor"
+        },
+        "description": "Custom sensor for total energy for the next X hours"
+      }
+    },
+    "error": {
+      "unknown": "Unknown error",
+      "incorrect_options_action": "Incorrect action chosen"
+    }
+  },
+  "selector": {
+    "solcast_config_action": {
+      "options": {
+        "configure_api": "Solcast API key",
+        "configure_dampening": "Configure Dampening",
+        "configure_customsensor": "Configure Custom Hour Sensor"
+      }
+    }
+  },
+  "system_health": {
+    "info": {
+      "can_reach_server": "Solcast server connection",
+      "used_requests": "API requests remaining",
+      "rooftop_site_count": "Rooftop site count"
+    }
+  },
+  "services": {
+    "update_forecasts": {
+      "name": "Update",
+      "description": "Fetches the latest forecasts data from Solcast."
+    },
+    "clear_all_solcast_data": {
+      "name": "Clear all saved Solcast data",
+      "description": "Deletes the solcast.json file to remove all current solcast site data."
+    },
+    "query_forecast_data": {
+      "name": "Query forecast data",
+      "description": "Return a data set or value for a given query.",
+      "fields": {
+        "start_date_time": {
+          "name": "Start date time",
+          "description": "Query forecast data events from date time."
+        },
+        "end_date_time": {
+          "name": "End date time",
+          "description": "Query forecast data events up to date time."
+        }
+      }
+    },
+    "set_dampening": {
+      "name": "Set forecasts dampening",
+      "description": "Set forecast dampening hourly factor.",
+      "fields": {
+        "damp_factor": {
+          "name": "Dampening string",
+          "description": "String of hourly dampening factor values comma seperated."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_now_30m": { "name": "Power Next 30 Mins" },
+      "power_now_1hr": { "name": "Power Next Hour" },
+      "total_kwh_forecast_today": { "name": "Forecast Today" },
+      "peak_w_today": { "name": "Peak Forecast Today" },
+      "peak_w_time_today": { "name": "Peak Time Today" },
+      "forecast_this_hour": { "name": "Forecast This Hour" },
+      "get_remaining_today": { "name": "Forecast Remaining Today" },
+      "forecast_next_hour": { "name": "Forecast Next Hour" },
+      "forecast_custom_hour": { "name": "Forecast Next Custom Hours" },
+      "total_kwh_forecast_tomorrow": { "name": "Forecast Tomorrow" },
+      "peak_w_tomorrow": { "name": "Peak Forecast Tomorrow" },
+      "peak_w_time_tomorrow": { "name": "Peak Time Tomorrow" },
+      "api_counter": { "name": "API Used" },
+      "api_limit": { "name": "API Limit" },
+      "lastupdated": { "name": "API Last Polled" },
+      "total_kwh_forecast_d3": { "name": "Forecast Day 3" },
+      "total_kwh_forecast_d4": { "name": "Forecast Day 4" },
+      "total_kwh_forecast_d5": { "name": "Forecast Day 5" },
+      "total_kwh_forecast_d6": { "name": "Forecast Day 6" },
+      "total_kwh_forecast_d7": { "name": "Forecast Day 7" },
+      "power_now": { "name": "Power Now" }
+    }
+  }
 }

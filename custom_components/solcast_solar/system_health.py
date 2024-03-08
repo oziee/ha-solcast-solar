@@ -1,4 +1,5 @@
 """Provide info to system health."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -20,7 +21,7 @@ def async_register(
 
 async def system_health_info(hass: HomeAssistant) -> dict[str, Any]:
     """Get info for the info page."""
-    coordinator: SolcastUpdateCoordinator =list(hass.data[DOMAIN].values())[0]
+    coordinator: SolcastUpdateCoordinator = list(hass.data[DOMAIN].values())[0]
     used_requests = coordinator.solcast.get_api_used_count()
 
     return {

@@ -1,137 +1,137 @@
 {
-    "config": {
-        "abort": {
-            "single_instance_allowed": "صرف ایک سولکاسٹ مثال کی اجازت ہے۔"
+  "config": {
+    "abort": {
+      "single_instance_allowed": "صرف ایک سولکاسٹ مثال کی اجازت ہے۔"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "سولکاسٹ API کلید"
         },
-        "step": {
-            "user": {
-                "data": {
-                    "api_key": "سولکاسٹ API کلید"
-                },
-                "description": "آپ کی سولکاسٹ API اکاؤنٹ کی کلید"
-            }
-        }
-    },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "solcast_config_action": "عمل"
-                },
-                "description": "سولکاسٹ کنفیگریشن کے اختیارات"
-            },
-            "api": {
-                "data": {
-                    "api_key": "سولکاسٹ API کلید"
-                },
-                "description": "آپ کی سولکاسٹ API اکاؤنٹ کی کلیدy"
-            },
-            "dampen": {
-                "data": {
-                    "damp00": "00:00",
-                    "damp01": "01:00",
-                    "damp02": "02:00",
-                    "damp03": "03:00",
-                    "damp04": "04:00",
-                    "damp05": "05:00",
-                    "damp06": "06:00",
-                    "damp07": "07:00",
-                    "damp08": "08:00",
-                    "damp09": "09:00",
-                    "damp10": "10:00",
-                    "damp11": "11:00",
-                    "damp12": "12:00",
-                    "damp13": "13:00",
-                    "damp14": "14:00",
-                    "damp15": "15:00",
-                    "damp16": "16:00",
-                    "damp17": "17:00",
-                    "damp18": "18:00",
-                    "damp19": "19:00",
-                    "damp20": "20:00",
-                    "damp21": "21:00",
-                    "damp22": "22:00",
-                    "damp23": "23:00"
-                },
-                "description": "گھنٹہ وار ڈیمپنگ فیکٹر میں ترمیم کریں۔"
-            }
-        },
-        "error": {
-            "unknown": "نامعلوم خامی",
-            "incorrect_options_action": "غلط عمل کا انتخاب کیا گیا ہے۔"
-        }
-    },
-    "selector": {
-        "solcast_config_action": {
-            "options": {
-                "configure_api": "سولکاسٹ API کلید",
-                "configure_dampening": "ڈیمپننگ کو ترتیب دیں۔"
-            }
-        }
-    },
-    "system_health": {
-        "info": {
-            "can_reach_server": "سولکاسٹ سرور کنکشن",
-            "used_requests": "API کی درخواستیں باقی ہیں۔",
-            "rooftop_site_count": "چھت والی سائٹ کی گنتی"
-        }
-    },
-    "services": {
-        "update_forecasts": {
-            "name": "اپڈیٹ کریں۔",
-            "description": "سولکاسٹ سے تازہ ترین پیشن گوئی کا ڈیٹا لاتا ہے۔"
-            },
-        "clear_all_solcast_data": {
-            "name": "تمام محفوظ کردہ سولکاسٹ ڈیٹا کو صاف کریں۔",
-            "description": "تمام موجودہ سولکاسٹ سائٹ ڈیٹا کو ہٹانے کے لیے solcast.json فائل کو حذف کرتا ہے۔"
-            },
-        "query_forecast_data": {
-            "name": "استفسار کی پیشن گوئی کے اعداد و شمار",
-            "description": "دیے گئے سوال کے لیے ڈیٹا سیٹ یا قدر واپس کریں۔",
-            "fields": {
-                "start_date_time": {
-                    "name": "تاریخ کا وقت شروع کریں۔",
-                    "description": "تاریخ کے وقت سے اعداد و شمار کے واقعات کی پیشن گوئی کریں۔"
-                },
-                "end_date_time": {
-                    "name": "اختتامی تاریخ کا وقت",
-                    "description": "تازہ ترین وقت کے اعداد و شمار کے واقعات کی پیشن گوئی سے استفسار کریں۔"
-                }
-            }
-        },
-        "set_dampening": {
-            "name": "نم ہونے والی پیشن گوئیاں مرتب کریں۔",
-            "description": "گھنٹہ وار فیکٹر کی پیشن گوئی کو نم کرنا سیٹ کریں۔",
-            "fields": {
-                "damp_factor": {
-                    "name": "ڈمپننگ سٹرنگ",
-                    "description": "فی گھنٹہ ڈیمپنگ فیکٹر ویلیوز کی اسٹرنگ کوما سے الگ کیا گیا۔"
-                }
-            }
-        }
-    },
-    "entity": {
-        "sensor": {
-            "power_now_30m": {"name": "پاور اگلا 30 منٹ"},
-            "power_now_1hr": {"name": "پاور اگلا گھنٹہ"},
-            "total_kwh_forecast_today": {"name": "آج کی پیشن گوئی"},
-            "peak_w_today": {"name": "آج کی بلند ترین پیش گوئی"},
-            "peak_w_time_today": {"name": "آج عروج کا وقت"},
-            "forecast_this_hour": {"name": "اس گھنٹے کی پیشن گوئی"},
-            "get_remaining_today": {"name": "آج باقی رہنے والی پیشن گوئی"},
-            "forecast_next_hour": {"name": "اگلے گھنٹے کی پیشن گوئی"},
-            "total_kwh_forecast_tomorrow": {"name": "کل کی پیشن گوئی"},
-            "peak_w_tomorrow": {"name": "کل عروج کی پیشن گوئی"},
-            "peak_w_time_tomorrow": {"name": "کل عروج کا وقت"},
-            "api_counter": {"name": "استعمال شدہ API"},
-            "api_limit": {"name": "API کی حد"},
-            "lastupdated": {"name": "API کی آخری رائے شماری"},
-            "total_kwh_forecast_d3": {"name": "دن 3 کی پیشن گوئی"},
-            "total_kwh_forecast_d4": {"name": "دن 4 کی پیشن گوئی"},
-            "total_kwh_forecast_d5": {"name": "دن 5 کی پیشن گوئی"},
-            "total_kwh_forecast_d6": {"name": "دن 6 کی پیشن گوئی"},
-            "total_kwh_forecast_d7": {"name": "دن 7 کی پیشن گوئی"},
-            "power_now": {"name": "ابھی پاور"}
-        }
+        "description": "آپ کی سولکاسٹ API اکاؤنٹ کی کلید"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "solcast_config_action": "عمل"
+        },
+        "description": "سولکاسٹ کنفیگریشن کے اختیارات"
+      },
+      "api": {
+        "data": {
+          "api_key": "سولکاسٹ API کلید"
+        },
+        "description": "آپ کی سولکاسٹ API اکاؤنٹ کی کلیدy"
+      },
+      "dampen": {
+        "data": {
+          "damp00": "00:00",
+          "damp01": "01:00",
+          "damp02": "02:00",
+          "damp03": "03:00",
+          "damp04": "04:00",
+          "damp05": "05:00",
+          "damp06": "06:00",
+          "damp07": "07:00",
+          "damp08": "08:00",
+          "damp09": "09:00",
+          "damp10": "10:00",
+          "damp11": "11:00",
+          "damp12": "12:00",
+          "damp13": "13:00",
+          "damp14": "14:00",
+          "damp15": "15:00",
+          "damp16": "16:00",
+          "damp17": "17:00",
+          "damp18": "18:00",
+          "damp19": "19:00",
+          "damp20": "20:00",
+          "damp21": "21:00",
+          "damp22": "22:00",
+          "damp23": "23:00"
+        },
+        "description": "گھنٹہ وار ڈیمپنگ فیکٹر میں ترمیم کریں۔"
+      }
+    },
+    "error": {
+      "unknown": "نامعلوم خامی",
+      "incorrect_options_action": "غلط عمل کا انتخاب کیا گیا ہے۔"
+    }
+  },
+  "selector": {
+    "solcast_config_action": {
+      "options": {
+        "configure_api": "سولکاسٹ API کلید",
+        "configure_dampening": "ڈیمپننگ کو ترتیب دیں۔"
+      }
+    }
+  },
+  "system_health": {
+    "info": {
+      "can_reach_server": "سولکاسٹ سرور کنکشن",
+      "used_requests": "API کی درخواستیں باقی ہیں۔",
+      "rooftop_site_count": "چھت والی سائٹ کی گنتی"
+    }
+  },
+  "services": {
+    "update_forecasts": {
+      "name": "اپڈیٹ کریں۔",
+      "description": "سولکاسٹ سے تازہ ترین پیشن گوئی کا ڈیٹا لاتا ہے۔"
+    },
+    "clear_all_solcast_data": {
+      "name": "تمام محفوظ کردہ سولکاسٹ ڈیٹا کو صاف کریں۔",
+      "description": "تمام موجودہ سولکاسٹ سائٹ ڈیٹا کو ہٹانے کے لیے solcast.json فائل کو حذف کرتا ہے۔"
+    },
+    "query_forecast_data": {
+      "name": "استفسار کی پیشن گوئی کے اعداد و شمار",
+      "description": "دیے گئے سوال کے لیے ڈیٹا سیٹ یا قدر واپس کریں۔",
+      "fields": {
+        "start_date_time": {
+          "name": "تاریخ کا وقت شروع کریں۔",
+          "description": "تاریخ کے وقت سے اعداد و شمار کے واقعات کی پیشن گوئی کریں۔"
+        },
+        "end_date_time": {
+          "name": "اختتامی تاریخ کا وقت",
+          "description": "تازہ ترین وقت کے اعداد و شمار کے واقعات کی پیشن گوئی سے استفسار کریں۔"
+        }
+      }
+    },
+    "set_dampening": {
+      "name": "نم ہونے والی پیشن گوئیاں مرتب کریں۔",
+      "description": "گھنٹہ وار فیکٹر کی پیشن گوئی کو نم کرنا سیٹ کریں۔",
+      "fields": {
+        "damp_factor": {
+          "name": "ڈمپننگ سٹرنگ",
+          "description": "فی گھنٹہ ڈیمپنگ فیکٹر ویلیوز کی اسٹرنگ کوما سے الگ کیا گیا۔"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_now_30m": { "name": "پاور اگلا 30 منٹ" },
+      "power_now_1hr": { "name": "پاور اگلا گھنٹہ" },
+      "total_kwh_forecast_today": { "name": "آج کی پیشن گوئی" },
+      "peak_w_today": { "name": "آج کی بلند ترین پیش گوئی" },
+      "peak_w_time_today": { "name": "آج عروج کا وقت" },
+      "forecast_this_hour": { "name": "اس گھنٹے کی پیشن گوئی" },
+      "get_remaining_today": { "name": "آج باقی رہنے والی پیشن گوئی" },
+      "forecast_next_hour": { "name": "اگلے گھنٹے کی پیشن گوئی" },
+      "total_kwh_forecast_tomorrow": { "name": "کل کی پیشن گوئی" },
+      "peak_w_tomorrow": { "name": "کل عروج کی پیشن گوئی" },
+      "peak_w_time_tomorrow": { "name": "کل عروج کا وقت" },
+      "api_counter": { "name": "استعمال شدہ API" },
+      "api_limit": { "name": "API کی حد" },
+      "lastupdated": { "name": "API کی آخری رائے شماری" },
+      "total_kwh_forecast_d3": { "name": "دن 3 کی پیشن گوئی" },
+      "total_kwh_forecast_d4": { "name": "دن 4 کی پیشن گوئی" },
+      "total_kwh_forecast_d5": { "name": "دن 5 کی پیشن گوئی" },
+      "total_kwh_forecast_d6": { "name": "دن 6 کی پیشن گوئی" },
+      "total_kwh_forecast_d7": { "name": "دن 7 کی پیشن گوئی" },
+      "power_now": { "name": "ابھی پاور" }
+    }
+  }
 }

@@ -1,4 +1,5 @@
 """Config flow for Solcast Solar integration."""
+
 from __future__ import annotations
 from typing import Any
 
@@ -15,11 +16,12 @@ from homeassistant.helpers.selector import (
 from homeassistant import config_entries
 from .const import DOMAIN, CONFIG_OPTIONS, CUSTOM_HOUR_SENSOR
 
+
 @config_entries.HANDLERS.register(DOMAIN)
 class SolcastSolarFlowHandler(ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Solcast Solar."""
 
-    VERSION = 6 #v5 started in 4.0.8, #6 started 4.0.15
+    VERSION = 6  # v5 started in 4.0.8, #6 started 4.0.15
 
     @staticmethod
     @callback
@@ -35,38 +37,38 @@ class SolcastSolarFlowHandler(ConfigFlow, domain=DOMAIN):
         """Handle a flow initiated by the user."""
         if self._async_current_entries():
             return self.async_abort(reason="single_instance_allowed")
-        
+
         if user_input is not None:
             return self.async_create_entry(
-                title= "Solcast Solar", 
-                data = {},
+                title="Solcast Solar",
+                data={},
                 options={
                     CONF_API_KEY: user_input[CONF_API_KEY],
-                    "damp00":1.0,
-                    "damp01":1.0,
-                    "damp02":1.0,
-                    "damp03":1.0,
-                    "damp04":1.0,
-                    "damp05":1.0,
-                    "damp06":1.0,
-                    "damp07":1.0,
-                    "damp08":1.0,
-                    "damp09":1.0,
-                    "damp10":1.0,
-                    "damp11":1.0,
-                    "damp12":1.0,
-                    "damp13":1.0,
-                    "damp14":1.0,
-                    "damp15":1.0,
-                    "damp16":1.0,
-                    "damp17":1.0,
-                    "damp18":1.0,
-                    "damp19":1.0,
-                    "damp20":1.0,
-                    "damp21":1.0,
-                    "damp22":1.0,
-                    "damp23":1.0,
-                    "customhoursensor":1,
+                    "damp00": 1.0,
+                    "damp01": 1.0,
+                    "damp02": 1.0,
+                    "damp03": 1.0,
+                    "damp04": 1.0,
+                    "damp05": 1.0,
+                    "damp06": 1.0,
+                    "damp07": 1.0,
+                    "damp08": 1.0,
+                    "damp09": 1.0,
+                    "damp10": 1.0,
+                    "damp11": 1.0,
+                    "damp12": 1.0,
+                    "damp13": 1.0,
+                    "damp14": 1.0,
+                    "damp15": 1.0,
+                    "damp16": 1.0,
+                    "damp17": 1.0,
+                    "damp18": 1.0,
+                    "damp19": 1.0,
+                    "damp20": 1.0,
+                    "damp21": 1.0,
+                    "damp22": 1.0,
+                    "damp23": 1.0,
+                    "customhoursensor": 1,
                 },
             )
 
@@ -115,15 +117,17 @@ class SolcastSolarOptionFlowHandler(OptionsFlow):
                     )
                 }
             ),
-            errors=errors
+            errors=errors,
         )
 
-    async def async_step_api(self, user_input: dict[str, Any] | None = None) -> FlowResult:
+    async def async_step_api(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
         """Manage the options."""
         if user_input is not None:
             allConfigData = {**self.config_entry.options}
-            k = user_input["api_key"].replace(" ","").strip()
-            k = ','.join([s for s in k.split(',') if s])
+            k = user_input["api_key"].replace(" ", "").strip()
+            k = ",".join([s for s in k.split(",") if s])
             allConfigData["api_key"] = k
 
             self.hass.config_entries.async_update_entry(
@@ -145,7 +149,9 @@ class SolcastSolarOptionFlowHandler(OptionsFlow):
             ),
         )
 
-    async def async_step_dampen(self, user_input: dict[str, Any] | None = None) -> FlowResult: #user_input=None):
+    async def async_step_dampen(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:  # user_input=None):
         """Manage the hourly factor options."""
 
         errors = {}
@@ -174,7 +180,7 @@ class SolcastSolarOptionFlowHandler(OptionsFlow):
         damp21 = self.config_entry.options["damp21"]
         damp22 = self.config_entry.options["damp22"]
         damp23 = self.config_entry.options["damp23"]
-        
+
         if user_input is not None:
             try:
                 damp00 = user_input["damp00"]
@@ -233,75 +239,101 @@ class SolcastSolarOptionFlowHandler(OptionsFlow):
                     title="Solcast Solar",
                     options=allConfigData,
                 )
-                
+
                 return self.async_create_entry(title="Solcast Solar", data=None)
-            except Exception as e:
+            except Exception:
                 errors["base"] = "unknown"
 
         return self.async_show_form(
             step_id="dampen",
             data_schema=vol.Schema(
                 {
-                    vol.Required("damp00", description={"suggested_value": damp00}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp01", description={"suggested_value": damp01}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp02", description={"suggested_value": damp02}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp03", description={"suggested_value": damp03}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp04", description={"suggested_value": damp04}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp05", description={"suggested_value": damp05}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp06", description={"suggested_value": damp06}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp07", description={"suggested_value": damp07}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp08", description={"suggested_value": damp08}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp09", description={"suggested_value": damp09}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp10", description={"suggested_value": damp10}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp11", description={"suggested_value": damp11}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp12", description={"suggested_value": damp12}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp13", description={"suggested_value": damp13}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp14", description={"suggested_value": damp14}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp15", description={"suggested_value": damp15}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp16", description={"suggested_value": damp16}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp17", description={"suggested_value": damp17}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp18", description={"suggested_value": damp18}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp19", description={"suggested_value": damp19}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp20", description={"suggested_value": damp20}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp21", description={"suggested_value": damp21}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp22", description={"suggested_value": damp22}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
-                    vol.Required("damp23", description={"suggested_value": damp23}):
-                            vol.All(vol.Coerce(float), vol.Range(min=0.0,max=1.0)),
+                    vol.Required(
+                        "damp00", description={"suggested_value": damp00}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp01", description={"suggested_value": damp01}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp02", description={"suggested_value": damp02}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp03", description={"suggested_value": damp03}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp04", description={"suggested_value": damp04}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp05", description={"suggested_value": damp05}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp06", description={"suggested_value": damp06}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp07", description={"suggested_value": damp07}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp08", description={"suggested_value": damp08}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp09", description={"suggested_value": damp09}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp10", description={"suggested_value": damp10}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp11", description={"suggested_value": damp11}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp12", description={"suggested_value": damp12}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp13", description={"suggested_value": damp13}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp14", description={"suggested_value": damp14}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp15", description={"suggested_value": damp15}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp16", description={"suggested_value": damp16}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp17", description={"suggested_value": damp17}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp18", description={"suggested_value": damp18}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp19", description={"suggested_value": damp19}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp20", description={"suggested_value": damp20}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp21", description={"suggested_value": damp21}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp22", description={"suggested_value": damp22}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
+                    vol.Required(
+                        "damp23", description={"suggested_value": damp23}
+                    ): vol.All(vol.Coerce(float), vol.Range(min=0.0, max=1.0)),
                 }
             ),
             errors=errors,
         )
 
-    async def async_step_customsensor(self, user_input: dict[str, Any] | None = None) -> FlowResult:
+    async def async_step_customsensor(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
         """Manage the custom x hour sensor option."""
 
         errors = {}
 
         customhoursensor = self.config_entry.options[CUSTOM_HOUR_SENSOR]
-        
+
         if user_input is not None:
             try:
                 customhoursensor = user_input[CUSTOM_HOUR_SENSOR]
@@ -314,17 +346,19 @@ class SolcastSolarOptionFlowHandler(OptionsFlow):
                     title="Solcast Solar",
                     options=allConfigData,
                 )
-                
+
                 return self.async_create_entry(title="Solcast Solar", data=None)
-            except Exception as e:
+            except Exception:
                 errors["base"] = "unknown"
 
         return self.async_show_form(
             step_id="customsensor",
             data_schema=vol.Schema(
                 {
-                    vol.Required(CUSTOM_HOUR_SENSOR, description={"suggested_value": customhoursensor}):
-                            vol.All(vol.Coerce(int), vol.Range(min=1,max=144)),
+                    vol.Required(
+                        CUSTOM_HOUR_SENSOR,
+                        description={"suggested_value": customhoursensor},
+                    ): vol.All(vol.Coerce(int), vol.Range(min=1, max=144)),
                 }
             ),
             errors=errors,

@@ -1,4 +1,5 @@
 """Support for the Solcast diagnostics."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -30,4 +31,3 @@ async def async_get_config_entry_diagnostics(
         "energy_history_graph": coordinator._previousenergy,
         "energy_forecasts_graph": coordinator.solcast._dataenergy["wh_hours"],
     }
-    
