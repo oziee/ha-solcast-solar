@@ -196,10 +196,10 @@ class SolcastApi:
                 #     self._api_limit = d["daily_limit"]
                 #     self._api_used = d["daily_limit_consumed"]
                 # else:
-                #     raise Exception(f"SOLCAST - sites_usage: gathering site data failed. request returned Status code: {status} - Responce: {resp_json}.")
+                #     raise Exception(f"SOLCAST - sites_usage: gathering site data failed. request returned Status code: {status} - Response: {resp_json}.")
             else:
                 raise Exception(
-                    f"SOLCAST - sites_usage: gathering site data failed. request returned Status code: {status} - Responce: {resp_json}."
+                    f"SOLCAST - sites_usage: gathering site data failed. request returned Status code: {status} - Response: {resp_json}."
                 )
 
         except json.decoder.JSONDecodeError:
@@ -273,7 +273,7 @@ class SolcastApi:
                     _LOGGER.debug(
                         "SOLCAST - load_saved_data there is no existing file with saved data to load"
                     )
-                    # could be a brand new install of the integation so this is poll once now automatically
+                    # could be a brand new install of the integration so this is poll once now automatically
                     await self.http_data(dopast=True)
             else:
                 _LOGGER.debug("SOLCAST - load_saved_data site count is zero! ")
@@ -695,7 +695,7 @@ class SolcastApi:
         self._data["siteinfo"].update({r_id: {"forecasts": copy.deepcopy(_forecasts)}})
 
     async def fetch_data(
-        self, path="error", hours=168, site="", apikey="", cachedname="forcasts"
+        self, path="error", hours=168, site="", apikey="", cachedname="forecasts"
     ) -> dict[str, Any]:
         """fetch data via the Solcast API."""
 
@@ -770,7 +770,7 @@ class SolcastApi:
             _LOGGER.error("SOLCAST - Connection Error", str(e))
         except asyncio.TimeoutError:
             _LOGGER.error(
-                "SOLCAST - Connection Timeout Error - Timed out connectng to Solcast API server"
+                "SOLCAST - Connection Timeout Error - Timed out connecting to Solcast API server"
             )
         except Exception:
             _LOGGER.error("SOLCAST - fetch_data error: %s", traceback.format_exc())
