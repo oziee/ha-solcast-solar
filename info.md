@@ -3,7 +3,7 @@
 v4.0.15
 
 - added custom 'Next X hours' sensor
-- added French translation thats to @Dackara
+- added French translation that's to @Dackara
 
 v4.0.14
 
@@ -57,18 +57,18 @@ v4.0.5
 v4.0.4
 
 - finished off the service call `query_forecast_data` to query the forecast data. Returns a list of forecast data using a datetime range start - end
-- and thats all.. unless HA makes breaking changes or there is a major bug in v4.0.4, this is the last update
+- and that's all.. unless HA makes breaking changes or there is a major bug in v4.0.4, this is the last update
 
 v4.0.3
 
 - updated German thanks to @florie1706 PR#179 and removed all other localisation files
 - added new attribute `detailedHourly` to each daily forecast sensor listing hourly forecasts in kWh
-- if there is data missing, sensors will still show something but a debug log will outpout that the sensor is missing data
+- if there is data missing, sensors will still show something but a debug log will output that the sensor is missing data
 
 v4.0.2
 
 - sensor names **have** changed!! this is due to locali(s/z)ation strings of the integration
-- decimal percision changed for forecast tomorrow from 0 to 2
+- decimal precision changed for forecast tomorrow from 0 to 2
 - fixed 7th day forecast missing data that was being ignored
 - added new sensor `Power Now`
 - added new sensor `Power Next 30 Mins`
@@ -80,10 +80,10 @@ v4.0.1
 - rebased from 3.0.55
 - keeps the last 730 days (2 years) of forecast data
 - some sensors have have had their device_class and native_unit_of_measurement updated to a correct type
-- API polling count is read directly from Solcast and is no longer calcuated
+- API polling count is read directly from Solcast and is no longer calculated
 - no more auto polling.. its now up to every one to create an automation to poll for data when you want. This is due to so many users now only have 10 api calls a day
 - striped out saving UTC time changing and keeping solcast data as it is so timezone data can be changed when needed
-- history items went missing due to the sensor renamed. no longer using the HA history and instead just dtoring the data in the solcast.json file
+- history items went missing due to the sensor renamed. no longer using the HA history and instead just storing the data in the solcast.json file
 - removed update actuals service.. actuals data from solcast is no longer polled (it is used on the first install to get past data so the integration works and i dont get issue reports because solcast do not give full day data, only data from when you call)
 - lots of the logging messages have been updated to be debug,info,warning or errors
 - some sensors **COULD** possibly no longer have extra attribute values or attribute values may have been renamed or have changed to the data storaged within
@@ -207,7 +207,7 @@ v3.0.26
 v3.0.25
 
 - removed PR for 3.0.24 - caused errors in the forecast graph
-- fixed HA 2022.11 cant add forcast to solar dashboard
+- fixed HA 2022.11 can't add forcast to solar dashboard
 
 v3.0.24
 
@@ -321,4 +321,4 @@ Integration contains
 ### Polling Imformation
 
 Solcast has a 50 API poll limit per day.
-Resently new solcast accounts only get a limit of 10
+Recently new solcast accounts only get a limit of 10
