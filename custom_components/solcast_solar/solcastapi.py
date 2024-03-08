@@ -13,7 +13,7 @@ from datetime import datetime as dt
 from datetime import timedelta, timezone
 from operator import itemgetter
 from os.path import exists as file_exists
-from typing import Any, Dict, cast
+from typing import Any, cast
 
 import async_timeout
 from aiohttp import ClientConnectionError, ClientSession
