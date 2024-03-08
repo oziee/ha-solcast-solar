@@ -4,9 +4,9 @@ If you make any changes that make this better create a PR for review
 
 ONLY use issues to create ACTUAL issues when these points fail: (also search the issues and discussions as it might have been asked and answered already)
 
-- make sure the API key you enter is teh API and not the rooftop id
+- make sure the API key you enter is the API and not the rooftop id
 - make sure the solcast toolkit area is working
-- READ THE LOG OUTPUT, this gives some good info as to whats happening or a problem
+- READ THE LOG OUTPUT, this gives some good info as to what's happening or a problem
 - make sure your not out of API calls
 - if all that fails run the service to delete the solcast data file (or manually delete it from HA/config/solcast.json and restart HA)
 
@@ -54,7 +54,7 @@ Select the category type `integration`
 Then once it's there (still in HACS) click the INSTALL button
 Then go to the HA Devices and Services and add a new Solcast Integration
 
-<summary><h3>Manualy</summary></h3>
+<summary><h3>Manually</summary></h3>
 
 You probably **do not** want to do this! Use the HACS method above unless you know what you are doing and have a good reason as to why you are installing manually
 
@@ -78,7 +78,7 @@ You probably **do not** want to do this! Use the HACS method above unless you kn
 
 - Options can be changed for existing `Solcast PV Forecast` integration in Home Assistant Integrations by selecting `Configure` (cog wheel)
 
-- If you have more than one Solcast account because you have more than 2 rooftop setups, enter both account API keys seperated by a comma `xxxxxxxx-xxxxx-xxxx,yyyyyyyy-yyyyy-yyyy` (this does go against Solcast T&C's having more than one account)
+- If you have more than one Solcast account because you have more than 2 rooftop setups, enter both account API keys separated by a comma `xxxxxxxx-xxxxx-xxxx,yyyyyyyy-yyyyy-yyyy` (this does go against Solcast T&C's having more than one account)
 
 - This is your `API Key` not your rooftop id created in Solcast. You can find your API key here [api key](https://toolkit.solcast.com.au/account)
 
@@ -109,7 +109,7 @@ There are 3 services for this integration that you can use in automations ([Conf
 
 ### Basic HA Automation to manual poll Solcast API data
 
-Create a new HA automation and setup your prefered triggers to manually poll for new data
+Create a new HA automation and setup your preffered triggers to manually poll for new data
 These are examples.. alter these or create your own to fit your own needs
 
 ```yaml
