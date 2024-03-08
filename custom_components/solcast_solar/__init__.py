@@ -152,7 +152,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
             factors = call.data.get(DAMP_FACTOR, None)
 
-            if factors == None:
+            if factors is None:
                 raise HomeAssistantError(
                     f"Error processing {SERVICE_SET_DAMPENING}: Empty factor string"
                 )
